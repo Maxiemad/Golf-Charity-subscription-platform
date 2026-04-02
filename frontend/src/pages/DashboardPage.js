@@ -8,6 +8,7 @@ import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Badge } from '../components/ui/badge';
 import { HoleInOneCelebration } from '../components/HoleInOneCelebration';
+import { ImpactChallenge } from '../components/ImpactChallenge';
 import {
   CreditCard,
   Calendar,
@@ -650,6 +651,13 @@ export function DashboardPage() {
             )}
           </div>
         </Card>
+
+        {/* Impact Challenge Game - NEW! */}
+        {user?.subscription_status === 'active' && (
+          <div className="mt-12">
+            <ImpactChallenge selectedCharityName={selectedCharityName} />
+          </div>
+        )}
       </div>
     </div>
   );

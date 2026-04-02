@@ -1228,6 +1228,43 @@ async def get_user_participations(request: Request):
     
     return participations
 
+@api_router.post("/impact-challenge/score")
+async def save_impact_score(score_data: dict, request: Request):
+    user = await get_current_user(request)
+    
+    # Save the impact score
+    await db.impact_scores.insert_one({
+        "user_id": user["id"],
+        "points": score_data.get("points", 0),
+        "impact_amount": score_data.get("impact_amount", 0),
+        "created_at": datetime.now(timezone.utc),
+        "date": datetime.now(timezone.utc).date().isoformat()
+    })
+    
+    return {"message": "Score saved successfully"}
+
+@api_router.get("/impact-challenge/stats")
+async def get_impact_stats(request: Request):
+    user = await get_current_user(request)
+    
+    # Get user's total impact
+    pipeline = [
+        {"$match": {"user_id": user["id"]}},
+        {"$group": {
+            "_id": None,
+            "total_points": {"$sum": "$points"},
+            "total_impact": {"$sum": "$impact_amount"},
+            "games_played": {"$sum": 1}
+        }}
+    ]
+    
+    result = await db.impact_scores.aggregate(pipeline).to_list(1)
+    
+    if result:
+        return result[0]
+    else:
+        return {"total_points": 0, "total_impact": 0, "games_played": 0}
+
 # Include router
 app.include_router(api_router)
 
