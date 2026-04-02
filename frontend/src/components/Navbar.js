@@ -1,7 +1,8 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { Button } from './ui/button';
-import { User, LogOut, LayoutDashboard, Shield, ArrowLeft, Zap } from 'lucide-react';
+import { User, LogOut, LayoutDashboard, Shield, ArrowLeft, Sun, Moon } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +13,7 @@ import {
 
 export function Navbar() {
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -23,7 +25,7 @@ export function Navbar() {
   const showBackButton = !['/','/ login', '/register'].includes(location.pathname);
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-white/5">
+    <nav className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-4">
@@ -32,31 +34,50 @@ export function Navbar() {
                 variant="ghost"
                 size="sm"
                 onClick={() => navigate(-1)}
-                className="hover:bg-white/5"
+                className="hover:bg-accent/10"
                 data-testid="back-button"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back
               </Button>
             )}
-            <Link to="/" className="flex items-center gap-2" data-testid="logo-link">
+            <Link to="/" className="flex items-center gap-2.5" data-testid="logo-link">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary via-pink-500 to-primary rounded-lg blur opacity-75 group-hover:opacity-100 transition"></div>
-                <div className="relative w-9 h-9 bg-gradient-to-br from-primary to-pink-600 rounded-lg flex items-center justify-center shadow-xl">
-                  <Zap className="w-5 h-5 text-white fill-white" strokeWidth={2} />
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary via-pink-500 to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition"></div>
+                <div className="relative w-9 h-9 bg-gradient-to-br from-primary to-pink-600 rounded-full flex items-center justify-center shadow-xl">
+                  {/* Ripple Icon - Concentric Circles */}
+                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <circle cx="12" cy="12" r="2" />
+                    <circle cx="12" cy="12" r="6" opacity="0.6" />
+                    <circle cx="12" cy="12" r="10" opacity="0.3" />
+                  </svg>
                 </div>
               </div>
-              <span className="text-xl font-outfit font-bold tracking-tight">
-                <span className="bg-gradient-to-r from-white via-zinc-100 to-white bg-clip-text text-transparent">ace</span>
-                <span className="text-primary">.</span>
+              <span className="text-xl font-outfit font-bold tracking-tight bg-gradient-to-r from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent">
+                Ripple
               </span>
             </Link>
           </div>
 
           <div className="flex items-center gap-6">
+            {/* Theme Toggle */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              className="hover:bg-accent/10"
+              data-testid="theme-toggle"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-4 h-4 text-yellow-500" />
+              ) : (
+                <Moon className="w-4 h-4 text-indigo-600" />
+              )}
+            </Button>
+
             <Link
               to="/charities"
-              className="text-sm text-zinc-400 hover:text-white transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               data-testid="nav-charities-link"
             >
               Charities
