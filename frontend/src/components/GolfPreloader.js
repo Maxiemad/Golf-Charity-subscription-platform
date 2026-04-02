@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { Zap } from 'lucide-react';
 
 export function GolfPreloader({ onComplete }) {
   const [progress, setProgress] = useState(0);
   const [showAnimation, setShowAnimation] = useState(true);
 
   useEffect(() => {
-    // Progress animation
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -17,7 +16,6 @@ export function GolfPreloader({ onComplete }) {
       });
     }, 30);
 
-    // Complete animation after 3 seconds
     const timeout = setTimeout(() => {
       setShowAnimation(false);
       setTimeout(() => {
@@ -47,83 +45,57 @@ export function GolfPreloader({ onComplete }) {
           <div className="relative">
             <div className="absolute -inset-2 bg-gradient-to-r from-primary to-pink-600 rounded-xl blur-xl opacity-75 animate-pulse"></div>
             <div className="relative w-16 h-16 bg-gradient-to-br from-primary to-pink-600 rounded-xl flex items-center justify-center shadow-2xl">
-              <ArrowUp className="w-10 h-10 text-white" strokeWidth={3} />
+              <Zap className="w-10 h-10 text-white fill-white" strokeWidth={2} />
             </div>
           </div>
-          <span className="text-4xl font-outfit font-bold bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">Uplift</span>
+          <span className="text-5xl font-outfit font-bold">
+            <span className="bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">ace</span>
+            <span className="text-primary">.</span>
+          </span>
         </div>
 
         {/* Golf Animation Container */}
         <div className="relative w-[400px] h-[300px] mx-auto mb-8">
-          {/* Golf Course Ground */}
           <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-green-900 to-green-700 rounded-full"></div>
           
-          {/* Hole */}
           <div className="absolute bottom-0 right-20 w-8 h-8 bg-zinc-900 rounded-full border-4 border-zinc-700 shadow-inner" style={{ transform: 'translateY(50%)' }}>
-            {/* Flag */}
             <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 bg-zinc-400">
               <div className="absolute top-0 left-1 w-6 h-4 bg-primary" style={{ clipPath: 'polygon(0 0, 100% 50%, 0 100%)' }}></div>
             </div>
           </div>
 
-          {/* Stickman Golfer */}
           <div 
             className="absolute bottom-2 left-20 transition-all duration-1000"
-            style={{
-              animation: 'swing 2s ease-in-out infinite',
-            }}
+            style={{ animation: 'swing 2s ease-in-out infinite' }}
           >
-            {/* Head */}
             <div className="absolute w-6 h-6 rounded-full bg-zinc-300 -top-10 left-1"></div>
-            
-            {/* Body */}
             <div className="absolute w-1 h-12 bg-zinc-300 -top-4 left-3"></div>
-            
-            {/* Arms - Animated */}
             <div 
               className="absolute w-12 h-1 bg-zinc-300 origin-left"
-              style={{
-                top: '-2px',
-                left: '3px',
-                animation: 'armSwing 2s ease-in-out infinite',
-              }}
+              style={{ top: '-2px', left: '3px', animation: 'armSwing 2s ease-in-out infinite' }}
             ></div>
-            
-            {/* Golf Club */}
             <div 
               className="absolute w-16 h-1 bg-zinc-400 origin-left"
-              style={{
-                top: '-2px',
-                left: '15px',
-                animation: 'clubSwing 2s ease-in-out infinite',
-              }}
+              style={{ top: '-2px', left: '15px', animation: 'clubSwing 2s ease-in-out infinite' }}
             ></div>
-            
-            {/* Legs */}
             <div className="absolute w-1 h-8 bg-zinc-300" style={{ top: '8px', left: '1px' }}></div>
             <div className="absolute w-1 h-8 bg-zinc-300" style={{ top: '8px', left: '5px' }}></div>
           </div>
 
-          {/* Golf Ball */}
           <div 
             className="absolute w-3 h-3 rounded-full bg-white shadow-lg"
-            style={{
-              bottom: '8px',
-              animation: 'ballFlight 2s ease-in-out infinite',
-            }}
+            style={{ bottom: '8px', animation: 'ballFlight 2s ease-in-out infinite' }}
           ></div>
         </div>
 
-        {/* Loading Text */}
         <div className="space-y-4">
           <p className="text-xl text-zinc-300 font-outfit">
-            <span className="inline-block animate-pulse">Preparing your impact journey</span>
+            <span className="inline-block animate-pulse">loading your impact</span>
             <span className="inline-block animate-bounce ml-1">.</span>
             <span className="inline-block animate-bounce ml-1" style={{ animationDelay: '0.2s' }}>.</span>
             <span className="inline-block animate-bounce ml-1" style={{ animationDelay: '0.4s' }}>.</span>
           </p>
           
-          {/* Progress Bar */}
           <div className="w-64 h-2 bg-zinc-800 rounded-full mx-auto overflow-hidden">
             <div 
               className="h-full bg-gradient-to-r from-primary to-pink-600 rounded-full transition-all duration-300 ease-out"
@@ -133,73 +105,11 @@ export function GolfPreloader({ onComplete }) {
         </div>
       </div>
 
-      {/* CSS Animations */}
       <style jsx>{`
-        @keyframes swing {
-          0%, 100% {
-            transform: rotate(0deg);
-          }
-          25% {
-            transform: rotate(-15deg);
-          }
-          50% {
-            transform: rotate(0deg);
-          }
-        }
-
-        @keyframes armSwing {
-          0%, 100% {
-            transform: rotate(-30deg);
-          }
-          25% {
-            transform: rotate(-90deg);
-          }
-          50% {
-            transform: rotate(-30deg);
-          }
-        }
-
-        @keyframes clubSwing {
-          0%, 100% {
-            transform: rotate(-45deg);
-          }
-          25% {
-            transform: rotate(-120deg);
-          }
-          50% {
-            transform: rotate(-45deg);
-          }
-        }
-
-        @keyframes ballFlight {
-          0% {
-            left: 120px;
-            bottom: 8px;
-            opacity: 1;
-          }
-          20% {
-            left: 150px;
-            bottom: 8px;
-          }
-          30% {
-            left: 200px;
-            bottom: 80px;
-            opacity: 1;
-          }
-          50% {
-            left: 280px;
-            bottom: 60px;
-          }
-          70% {
-            left: 320px;
-            bottom: 20px;
-          }
-          80%, 100% {
-            left: 340px;
-            bottom: 8px;
-            opacity: 0;
-          }
-        }
+        @keyframes swing { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-15deg); } 50% { transform: rotate(0deg); } }
+        @keyframes armSwing { 0%, 100% { transform: rotate(-30deg); } 25% { transform: rotate(-90deg); } 50% { transform: rotate(-30deg); } }
+        @keyframes clubSwing { 0%, 100% { transform: rotate(-45deg); } 25% { transform: rotate(-120deg); } 50% { transform: rotate(-45deg); } }
+        @keyframes ballFlight { 0% { left: 120px; bottom: 8px; opacity: 1; } 20% { left: 150px; bottom: 8px; } 30% { left: 200px; bottom: 80px; opacity: 1; } 50% { left: 280px; bottom: 60px; } 70% { left: 320px; bottom: 20px; } 80%, 100% { left: 340px; bottom: 8px; opacity: 0; } }
       `}</style>
     </div>
   );

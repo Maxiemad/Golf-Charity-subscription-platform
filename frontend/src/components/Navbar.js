@@ -1,7 +1,7 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from './ui/button';
-import { User, LogOut, LayoutDashboard, Shield, ArrowLeft, ArrowUp } from 'lucide-react';
+import { User, LogOut, LayoutDashboard, Shield, ArrowLeft, Zap } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -40,13 +40,16 @@ export function Navbar() {
               </Button>
             )}
             <Link to="/" className="flex items-center gap-2" data-testid="logo-link">
-              <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-pink-600 rounded-lg blur opacity-75"></div>
-                <div className="relative w-8 h-8 bg-gradient-to-br from-primary to-pink-600 rounded-lg flex items-center justify-center shadow-xl">
-                  <ArrowUp className="w-5 h-5 text-white" strokeWidth={3} />
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary via-pink-500 to-primary rounded-lg blur opacity-75 group-hover:opacity-100 transition"></div>
+                <div className="relative w-9 h-9 bg-gradient-to-br from-primary to-pink-600 rounded-lg flex items-center justify-center shadow-xl">
+                  <Zap className="w-5 h-5 text-white fill-white" strokeWidth={2} />
                 </div>
               </div>
-              <span className="text-xl font-outfit font-bold tracking-tight bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">Uplift</span>
+              <span className="text-xl font-outfit font-bold tracking-tight">
+                <span className="bg-gradient-to-r from-white via-zinc-100 to-white bg-clip-text text-transparent">ace</span>
+                <span className="text-primary">.</span>
+              </span>
             </Link>
           </div>
 
