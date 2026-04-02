@@ -1,7 +1,7 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from './ui/button';
-import { Heart, User, LogOut, LayoutDashboard, Shield, ArrowLeft } from 'lucide-react';
+import { User, LogOut, LayoutDashboard, Shield, ArrowLeft, ArrowUp } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -40,8 +40,13 @@ export function Navbar() {
               </Button>
             )}
             <Link to="/" className="flex items-center gap-2" data-testid="logo-link">
-              <Heart className="w-7 h-7 text-primary fill-primary" />
-              <span className="text-xl font-outfit font-bold tracking-tight">GolfCharity</span>
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-pink-600 rounded-lg blur opacity-75"></div>
+                <div className="relative w-8 h-8 bg-gradient-to-br from-primary to-pink-600 rounded-lg flex items-center justify-center shadow-xl">
+                  <ArrowUp className="w-5 h-5 text-white" strokeWidth={3} />
+                </div>
+              </div>
+              <span className="text-xl font-outfit font-bold tracking-tight bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">Uplift</span>
             </Link>
           </div>
 

@@ -1,8 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
-import { Heart, TrendingUp, Users, DollarSign, ArrowRight, Check, Sparkles, Trophy, Calendar, Target } from 'lucide-react';
+import { Heart, TrendingUp, Users, DollarSign, ArrowRight, Check, Sparkles, Trophy, Calendar, Target, ArrowUp } from 'lucide-react';
 import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
@@ -27,15 +28,31 @@ function AnimatedCounter({ end, duration = 2000, suffix = '' }) {
 }
 
 export function LandingPage() {
-  const [stats, setStats] = useState({ users: 0, prizePool: 0, charity: 0 });
+  const { user } = useAuth();
   const navigate = useNavigate();
+  const [stats, setStats] = useState({ users: 0, prizePool: 0, charity: 0 });
 
   useEffect(() => {
-    // Simulate fetching stats
     setTimeout(() => {
       setStats({ users: 2547, prizePool: 52000, charity: 104000 });
     }, 500);
   }, []);
+
+  const handleCTAClick = () => {
+    if (user) {
+      navigate('/dashboard');
+    } else {
+      navigate('/register');
+    }
+  };
+
+  const handlePricingClick = (tier) => {
+    if (user) {
+      navigate('/dashboard');
+    } else {
+      navigate('/register');
+    }
+  };
 
   return (
     <div className="min-h-screen overflow-x-hidden">
@@ -98,19 +115,18 @@ export function LandingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link to="/register">
-              <Button
-                size="lg"
-                className="text-lg px-10 py-7 group relative overflow-hidden shadow-2xl shadow-primary/50 hover:shadow-primary/70 transition-all"
-                data-testid="cta-get-started"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  Start Your Impact Journey
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              onClick={handleCTAClick}
+              className="text-lg px-10 py-7 group relative overflow-hidden shadow-2xl shadow-primary/50 hover:shadow-primary/70 transition-all"
+              data-testid="cta-get-started"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                {user ? 'Go to Dashboard' : 'Start Your Impact Journey'}
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </Button>
             <Link to="/charities">
               <Button
                 variant="outline"
@@ -422,11 +438,13 @@ export function LandingPage() {
                   </li>
                 </ul>
                 
-                <Link to="/register">
-                  <Button className="w-full py-6 text-lg" data-testid="pricing-monthly-cta">
-                    Start Making an Impact
-                  </Button>
-                </Link>
+                <Button 
+                  onClick={() => handlePricingClick('monthly')}
+                  className="w-full py-6 text-lg" 
+                  data-testid="pricing-monthly-cta"
+                >
+                  {user ? 'Activate in Dashboard' : 'Start Making an Impact'}
+                </Button>
               </Card>
             </div>
 
@@ -475,11 +493,13 @@ export function LandingPage() {
                   </li>
                 </ul>
                 
-                <Link to="/register">
-                  <Button className="w-full py-6 text-lg bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90" data-testid="pricing-yearly-cta">
-                    Maximize Your Impact
-                  </Button>
-                </Link>
+                <Button 
+                  onClick={() => handlePricingClick('yearly')}
+                  className="w-full py-6 text-lg bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90" 
+                  data-testid="pricing-yearly-cta"
+                >
+                  {user ? 'Activate in Dashboard' : 'Maximize Your Impact'}
+                </Button>
               </Card>
             </div>
           </div>
@@ -502,12 +522,15 @@ export function LandingPage() {
           <p className="text-xl text-zinc-300 mb-12 max-w-3xl mx-auto">
             Join {stats.users.toLocaleString()}+ members who are combining passion with purpose. Every score matters. Every subscription counts.
           </p>
-          <Link to="/register">
-            <Button size="lg" className="text-xl px-14 py-8 shadow-2xl shadow-primary/50 hover:shadow-primary/70 group" data-testid="final-cta">
-              Begin Your Journey Today
-              <Sparkles className="w-6 h-6 ml-3 group-hover:rotate-12 transition-transform" />
-            </Button>
-          </Link>
+          <Button 
+            onClick={handleCTAClick}
+            size="lg" 
+            className="text-xl px-14 py-8 shadow-2xl shadow-primary/50 hover:shadow-primary/70 group" 
+            data-testid="final-cta"
+          >
+            {user ? 'Go to Your Dashboard' : 'Begin Your Journey Today'}
+            <Sparkles className="w-6 h-6 ml-3 group-hover:rotate-12 transition-transform" />
+          </Button>
         </div>
       </section>
     </div>

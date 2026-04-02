@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Card } from '../components/ui/card';
-import { Heart } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export function LoginPage() {
   const [email, setEmail] = useState('');
@@ -34,9 +34,14 @@ export function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12">
       <Card className="w-full max-w-md bg-zinc-900 border-white/5 p-8">
-        <div className="flex items-center justify-center gap-2 mb-8">
-          <Heart className="w-8 h-8 text-primary fill-primary" />
-          <span className="text-2xl font-outfit font-bold">GolfCharity</span>
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-pink-600 rounded-lg blur opacity-75"></div>
+            <div className="relative w-10 h-10 bg-gradient-to-br from-primary to-pink-600 rounded-lg flex items-center justify-center shadow-xl">
+              <ArrowUp className="w-6 h-6 text-white" strokeWidth={3} />
+            </div>
+          </div>
+          <span className="text-3xl font-outfit font-bold bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">Uplift</span>
         </div>
 
         <h1 className="text-2xl font-outfit font-bold text-center mb-2" data-testid="login-title">
