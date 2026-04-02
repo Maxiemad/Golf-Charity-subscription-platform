@@ -7,6 +7,7 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Badge } from '../components/ui/badge';
+import { HoleInOneCelebration } from '../components/HoleInOneCelebration';
 import {
   CreditCard,
   Calendar,
@@ -37,6 +38,8 @@ export function DashboardPage() {
   const [loadingParticipations, setLoadingParticipations] = useState(true);
   const [charities, setCharities] = useState([]);
   const [selectedCharityName, setSelectedCharityName] = useState('');
+  const [showCelebration, setShowCelebration] = useState(false);
+  const [celebrationPrize, setCelebrationPrize] = useState(0);
 
   useEffect(() => {
     fetchScores();
@@ -119,6 +122,16 @@ export function DashboardPage() {
         withCredentials: true,
       });
       setParticipations(data);
+      
+      // Check for 5-match wins and show celebration
+      const fiveMatchWin = data.find(p => p.won && p.matched_count === 5 && !sessionStorage.getItem(`celebrated_${p.participation_id}`));
+      if (fiveMatchWin && fiveMatchWin.prize_amount) {
+        setTimeout(() => {
+          setCelebrationPrize(fiveMatchWin.prize_amount);
+          setShowCelebration(true);
+          sessionStorage.setItem(`celebrated_${fiveMatchWin.participation_id}`, 'true');
+        }, 1000);
+      }
     } catch (error) {
       console.error('Error fetching participations:', error);
     } finally {
@@ -192,6 +205,14 @@ export function DashboardPage() {
 
   return (
     <div className="min-h-screen pb-20 relative overflow-hidden">
+      {/* Hole in One Celebration Modal */}
+      {showCelebration && (
+        <HoleInOneCelebration
+          prizeAmount={celebrationPrize}
+          onClose={() => setShowCelebration(false)}
+        />
+      )}
+
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-48 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
