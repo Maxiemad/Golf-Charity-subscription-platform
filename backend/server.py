@@ -304,6 +304,33 @@ async def startup_event():
                 "featured": False,
                 "upcoming_events": [],
                 "created_at": datetime.now(timezone.utc)
+            },
+            {
+                "charity_id": str(uuid.uuid4()),
+                "name": "Youth Sports Development",
+                "description": "Empowering young athletes from underserved communities through sports programs, coaching, and equipment. Building character through competition.",
+                "image_url": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?crop=entropy&cs=srgb&fm=jpg&w=800&q=85",
+                "featured": True,
+                "upcoming_events": ["Junior Golf Championship - May 2026", "Sports Equipment Drive - July 2026"],
+                "created_at": datetime.now(timezone.utc)
+            },
+            {
+                "charity_id": str(uuid.uuid4()),
+                "name": "Veterans Wellness Foundation",
+                "description": "Supporting military veterans through therapeutic golf programs, mental health services, and community reintegration initiatives.",
+                "image_url": "https://images.unsplash.com/photo-1560439514-4e9645039924?crop=entropy&cs=srgb&fm=jpg&w=800&q=85",
+                "featured": False,
+                "upcoming_events": ["Veterans Golf Tournament - November 2026"],
+                "created_at": datetime.now(timezone.utc)
+            },
+            {
+                "charity_id": str(uuid.uuid4()),
+                "name": "Community Food Security",
+                "description": "Fighting hunger by providing nutritious meals to families in need. Every dollar feeds a family, every subscription makes a lasting impact.",
+                "image_url": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?crop=entropy&cs=srgb&fm=jpg&w=800&q=85",
+                "featured": False,
+                "upcoming_events": ["Food Drive - Ongoing", "Community Kitchen Opening - August 2026"],
+                "created_at": datetime.now(timezone.utc)
             }
         ]
         await db.charities.insert_many(sample_charities)
