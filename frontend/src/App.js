@@ -13,6 +13,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import { CharitiesPage } from './pages/CharitiesPage';
 import { AdminDashboard } from './pages/AdminDashboard';
 import { CelebrationDemo } from './pages/CelebrationDemo';
+import { GameDemo } from './pages/GameDemo';
 import { Toaster } from './components/ui/sonner';
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/charities" element={<CharitiesPage />} />
               <Route path="/celebration-demo" element={<CelebrationDemo />} />
+              <Route path="/game-demo" element={<GameDemo />} />
               <Route
                 path="/dashboard"
                 element={
