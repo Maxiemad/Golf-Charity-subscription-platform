@@ -162,6 +162,7 @@ export function DashboardPage() {
 
   const handleSubscribe = async (tier) => {
     try {
+      toast.loading('Creating checkout session...');
       const { data } = await axios.post(
         `${API_URL}/api/subscription/create-checkout`,
         {
@@ -171,9 +172,15 @@ export function DashboardPage() {
         { withCredentials: true }
       );
 
-      window.location.href = data.url;
+      if (data.url) {
+        toast.success('Redirecting to checkout...');
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL received');
+      }
     } catch (error) {
-      toast.error('Failed to create checkout session');
+      console.error('Checkout error:', error);
+      toast.error(error.response?.data?.detail || 'Failed to create checkout session. Please try again.');
     }
   };
 

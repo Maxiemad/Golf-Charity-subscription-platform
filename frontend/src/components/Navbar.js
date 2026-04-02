@@ -1,7 +1,7 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from './ui/button';
-import { Heart, User, LogOut, LayoutDashboard, Shield } from 'lucide-react';
+import { Heart, User, LogOut, LayoutDashboard, Shield, ArrowLeft } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,20 +13,37 @@ import {
 export function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = async () => {
     await logout();
     navigate('/');
   };
 
+  const showBackButton = !['/','/ login', '/register'].includes(location.pathname);
+
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2" data-testid="logo-link">
-            <Heart className="w-7 h-7 text-primary fill-primary" />
-            <span className="text-xl font-outfit font-bold tracking-tight">GolfCharity</span>
-          </Link>
+          <div className="flex items-center gap-4">
+            {showBackButton && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => navigate(-1)}
+                className="hover:bg-white/5"
+                data-testid="back-button"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back
+              </Button>
+            )}
+            <Link to="/" className="flex items-center gap-2" data-testid="logo-link">
+              <Heart className="w-7 h-7 text-primary fill-primary" />
+              <span className="text-xl font-outfit font-bold tracking-tight">GolfCharity</span>
+            </Link>
+          </div>
 
           <div className="flex items-center gap-6">
             <Link
