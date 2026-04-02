@@ -1,0 +1,107 @@
+{
+  "theme": "Dark",
+  "archetype": "Archetype 4: Swiss & High-Contrast (Modernized for Philanthropy)",
+  "core_principles": [
+    "Charity First, Tech Second: The UI must feel like a premium tech product (SaaS) but all messaging and hero imagery must focus on human impact.",
+    "Zero Golf Clichés: No green/yellow combinations, no fairways, no plaid, no golf clubs.",
+    "High Contrast & Emotion: Use stark black/white structures with a vibrant, emotional 'Heartbeat Coral' as the sole accent color.",
+    "Motion & Momentum: Use smooth transitions and staggered reveal animations to make the data feel alive."
+  ],
+  "colors": {
+    "background": "#09090B",
+    "foreground": "#FAFAFA",
+    "card": "#18181B",
+    "card_foreground": "#FAFAFA",
+    "popover": "#18181B",
+    "popover_foreground": "#FAFAFA",
+    "primary": "#F43F5E",
+    "primary_foreground": "#FFFFFF",
+    "secondary": "#27272A",
+    "secondary_foreground": "#FAFAFA",
+    "muted": "#27272A",
+    "muted_foreground": "#A1A1AA",
+    "accent": "#F43F5E",
+    "accent_foreground": "#FFFFFF",
+    "destructive": "#EF4444",
+    "border": "#27272A",
+    "input": "#27272A",
+    "ring": "#F43F5E"
+  },
+  "typography": {
+    "heading_font": "Outfit, sans-serif",
+    "body_font": "Manrope, sans-serif",
+    "scales": {
+      "h1": "text-5xl md:text-6xl lg:text-7xl tracking-tighter font-bold",
+      "h2": "text-3xl md:text-4xl lg:text-5xl tracking-tight font-bold",
+      "h3": "text-xl md:text-2xl tracking-tight font-semibold",
+      "h4": "text-lg font-semibold",
+      "body": "text-base leading-relaxed text-zinc-300",
+      "small": "text-sm text-zinc-400 uppercase tracking-widest"
+    }
+  },
+  "spacing_and_layout": {
+    "bento_grid": "Use MODE A (Tetris Grid) for marketing sections to create asymmetry. Use MODE B (Control Room Grid) for the Dashboard.",
+    "generous_padding": "Use p-8 to p-12 inside cards. Section padding should be py-24 to py-32 to let content breathe.",
+    "container_alignment": "Avoid center alignment for heavy text; prefer left-aligned blocks with tight left margins."
+  },
+  "surface_strategies": {
+    "marketing_cards": "Glassmorphism: bg-zinc-900/60 backdrop-blur-xl border border-white/10 shadow-2xl.",
+    "dashboard_cards": "Flat Solid: bg-zinc-900 border border-white/5 rounded-xl. No heavy shadows, focus on clean data separation.",
+    "buttons": "Primary: Solid #F43F5E with hover brightness increase. Secondary: Transparent with #27272A border and white text."
+  },
+  "components": {
+    "navigation": "Sticky header, backdrop-blur-md, high contrast text.",
+    "tables": "Shadcn UI tables but heavily customized: transparent backgrounds, 1px subtle bottom borders, hover states on rows.",
+    "charts": "Recharts with monotone lines/bars. Accentuated only with the primary coral color.",
+    "data_display": "Huge typography for numbers (e.g., Stableford scores, Monthly Draw pools) using font-mono or tight tracking.",
+    "forms": "Shadcn UI forms. Minimal borders, floating labels or clean top labels. Focus states must have an aggressive Coral ring."
+  },
+  "motion_and_interactions": {
+    "hover": "Subtle scale up (scale-105) for cards, slight border color lightening.",
+    "page_load": "Framer motion staggered fade-in up (y: 20 -> 0) for bento grid children.",
+    "smooth_scroll": "Implement smooth scrolling on the marketing pages."
+  },
+  "media": {
+    "rules": "No placeholder images. Use the provided URLs strictly.",
+    "images": {
+      "hero_background": {
+        "url": "https://images.pexels.com/photos/29708293/pexels-photo-29708293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Abstract dynamic 3D shapes on deep blue/dark backdrop for the hero or tech-focused sections.",
+        "category": "background"
+      },
+      "charity_impact_1": {
+        "url": "https://images.unsplash.com/photo-1509099836639-18ba1795216d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHwxfHxjaGFyaXR5JTIwaW1wYWN0JTIwc21pbGluZyUyMGNvbW11bml0eXxlbnwwfHx8fDE3NzUxMTI2NzJ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Group of children. Use for the main charity mission section.",
+        "category": "marketing_image"
+      },
+      "charity_impact_2": {
+        "url": "https://images.pexels.com/photos/12102732/pexels-photo-12102732.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Lively event with children and volunteers. Use for 'Support Charities' blocks.",
+        "category": "marketing_image"
+      },
+      "abstract_texture": {
+        "url": "https://images.unsplash.com/photo-1773892574539-6b5b1d34722f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMG1pbmltYWxpc3QlMjB3aGl0ZSUyMHRleHR1cmV8ZW58MHx8fHwxNzc1MTEyNjcyfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract wavy lines pattern. Use as an overlay or background texture for statistic cards.",
+        "category": "texture"
+      },
+      "dashboard_avatar": {
+        "url": "https://images.unsplash.com/photo-1603998382124-c9835bf50409?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHw0fHxjaGFyaXR5JTIwaW1wYWN0JTIwc21pbGluZyUyMGNvbW11bml0eXxlbnwwfHx8fDE3NzUxMTI2NzJ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Smiling woman. Use as a placeholder for user avatars in the dashboard.",
+        "category": "avatar"
+      },
+      "brand_logo": {
+         "url": "https://images.unsplash.com/photo-1760037034804-2dce280659e2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsb2dvJTIwc3ltYm9sfGVufDB8fHx8MTc3NTExMjY3OHww&ixlib=rb-4.1.0&q=85",
+         "description": "Modern minimalist logo symbol for the brand.",
+         "category": "logo"
+      }
+    }
+  },
+  "instructions_to_main_agent": [
+    "Do NOT use 'Inter' for headings. Use 'Outfit' for headings and 'Manrope' for body. Update Google Fonts import in index.html or layout file.",
+    "Implement a dark theme using the precise hex codes provided in this guideline (Background: #09090B).",
+    "Marketing pages must utilize the 'Bento Grid' strategy for layout. Ensure overlapping text on images has a dark gradient overlay.",
+    "For the User and Admin Dashboards, use Shadcn components (tables, cards) but strip the heavy Vercel-like borders. Use the 'Flat Solid' surface strategy.",
+    "Strictly avoid any golf imagery (no grass, clubs, or balls). Focus on the tech platform, the subscription engine, and the human charity impact.",
+    "CRITICAL: All interactive and key informational elements MUST include a 'data-testid' attribute (kebab-case, role-based) to facilitate robust automated testing."
+  ]
+}
