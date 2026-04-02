@@ -905,11 +905,12 @@ async def publish_draw(draw_data: dict, request: Request):
     await db.draws.insert_one(draw_doc)
     
     # Calculate winners based on user scores
-    users = await db.users.find({"subscription_status": "active"}, {"_id": 0}).to_list(1000)
+    users = await db.users.find({"subscription_status": "active"}).to_list(1000)
     
     for user in users:
+        user_id = str(user["_id"])
         user_scores = await db.scores.find(
-            {"user_id": user["id"]},
+            {"user_id": user_id},
             {"_id": 0}
         ).sort("created_at", -1).limit(5).to_list(5)
         
@@ -921,7 +922,7 @@ async def publish_draw(draw_data: dict, request: Request):
                 # Create participation record
                 await db.participations.insert_one({
                     "participation_id": str(uuid.uuid4()),
-                    "user_id": user["id"],
+                    "user_id": user_id,
                     "draw_id": draw_doc["draw_id"],
                     "user_numbers": user_numbers,
                     "matched_count": matched,
