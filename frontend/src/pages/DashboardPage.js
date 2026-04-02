@@ -377,6 +377,13 @@ export function DashboardPage() {
           </div>
         </div>
 
+        {/* Impact Challenge Game */}
+        {user?.subscription_status === 'active' && (
+          <div className="mb-12" data-testid="impact-challenge-section">
+            <ImpactChallenge selectedCharityName={selectedCharityName} />
+          </div>
+        )}
+
         {/* Scores Section - Enhanced 3D */}
         <Card 
           className="bg-card border-border p-10 mb-12 relative overflow-hidden shadow-2xl"
@@ -652,12 +659,6 @@ export function DashboardPage() {
           </div>
         </Card>
 
-        {/* Impact Challenge Game - NEW! */}
-        {user?.subscription_status === 'active' && (
-          <div className="mt-12">
-            <ImpactChallenge selectedCharityName={selectedCharityName} />
-          </div>
-        )}
       </div>
     </div>
   );

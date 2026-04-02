@@ -29,7 +29,8 @@ Build a "Golf Charity Subscription Platform" where users subscribe (Monthly $20 
 - [x] ImpactChallenge mini-game
 - [x] HoleInOneCelebration animation
 - [x] **Light/Dark theme toggle** with localStorage persistence
-- [x] **"Ripple" branding** across all pages (Landing, Login, Register, Dashboard, Charities, Preloader)
+- [x] **"Lively" branding** across all pages with energy burst logo
+- [x] **Impact Challenge game** moved to prominent position (after status cards)
 - [x] **Theme-aware colors** - all pages use CSS variables, no hardcoded dark/light colors
 - [x] **Charity display fix** - selected charity correctly shows on dashboard
 

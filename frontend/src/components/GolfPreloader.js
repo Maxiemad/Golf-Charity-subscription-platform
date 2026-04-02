@@ -45,13 +45,14 @@ export function GolfPreloader({ onComplete }) {
             <div className="absolute -inset-2 bg-gradient-to-r from-primary to-pink-600 rounded-full blur-xl opacity-75 animate-pulse"></div>
             <div className="relative w-16 h-16 bg-gradient-to-br from-primary to-pink-600 rounded-full flex items-center justify-center shadow-2xl">
               <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <circle cx="12" cy="12" r="2" />
-                <circle cx="12" cy="12" r="6" opacity="0.6" />
-                <circle cx="12" cy="12" r="10" opacity="0.3" />
+                <circle cx="10" cy="12" r="5" fill="currentColor" />
+                <line x1="18" y1="6" x2="21" y2="3" strokeLinecap="round" />
+                <line x1="18" y1="12" x2="22" y2="12" strokeLinecap="round" />
+                <line x1="18" y1="18" x2="21" y2="21" strokeLinecap="round" />
               </svg>
             </div>
           </div>
-          <span className="text-5xl font-outfit font-bold text-foreground">Ripple</span>
+          <span className="text-5xl font-outfit font-bold text-foreground">Lively</span>
         </div>
 
         {/* Golf Animation Container */}

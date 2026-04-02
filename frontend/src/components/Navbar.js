@@ -45,16 +45,17 @@ export function Navbar() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary via-pink-500 to-primary rounded-full blur opacity-75 group-hover:opacity-100 transition"></div>
                 <div className="relative w-9 h-9 bg-gradient-to-br from-primary to-pink-600 rounded-full flex items-center justify-center shadow-xl">
-                  {/* Ripple Icon - Concentric Circles */}
+                  {/* Lively Icon - Energy Burst */}
                   <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <circle cx="12" cy="12" r="2" />
-                    <circle cx="12" cy="12" r="6" opacity="0.6" />
-                    <circle cx="12" cy="12" r="10" opacity="0.3" />
+                    <circle cx="10" cy="12" r="5" fill="currentColor" />
+                    <line x1="18" y1="6" x2="21" y2="3" strokeLinecap="round" />
+                    <line x1="18" y1="12" x2="22" y2="12" strokeLinecap="round" />
+                    <line x1="18" y1="18" x2="21" y2="21" strokeLinecap="round" />
                   </svg>
                 </div>
               </div>
               <span className="text-xl font-outfit font-bold tracking-tight bg-gradient-to-r from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent">
-                Ripple
+                Lively
               </span>
             </Link>
           </div>

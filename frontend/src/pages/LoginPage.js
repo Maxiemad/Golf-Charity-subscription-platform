@@ -39,13 +39,14 @@ export function LoginPage() {
             <div className="absolute -inset-1 bg-gradient-to-r from-primary via-pink-500 to-primary rounded-full blur opacity-75"></div>
             <div className="relative w-10 h-10 bg-gradient-to-br from-primary to-pink-600 rounded-full flex items-center justify-center shadow-xl">
               <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <circle cx="12" cy="12" r="2" />
-                <circle cx="12" cy="12" r="6" opacity="0.6" />
-                <circle cx="12" cy="12" r="10" opacity="0.3" />
+                <circle cx="10" cy="12" r="5" fill="currentColor" />
+                <line x1="18" y1="6" x2="21" y2="3" strokeLinecap="round" />
+                <line x1="18" y1="12" x2="22" y2="12" strokeLinecap="round" />
+                <line x1="18" y1="18" x2="21" y2="21" strokeLinecap="round" />
               </svg>
             </div>
           </div>
-          <span className="text-3xl font-outfit font-bold text-foreground">Ripple</span>
+          <span className="text-3xl font-outfit font-bold text-foreground">Lively</span>
         </div>
 
         <h1 className="text-2xl font-outfit font-bold text-center mb-2" data-testid="login-title">

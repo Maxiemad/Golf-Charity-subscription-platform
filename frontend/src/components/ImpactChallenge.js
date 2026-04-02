@@ -251,7 +251,7 @@ export function ImpactChallenge({ selectedCharityName }) {
   };
 
   return (
-    <Card className="bg-gradient-to-br from-zinc-900 to-zinc-800 border-white/10 p-8 relative overflow-hidden">
+    <Card className="bg-card border-border p-8 relative overflow-hidden" data-testid="impact-challenge-card">
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
       
       <div className="relative z-10">
@@ -263,7 +263,7 @@ export function ImpactChallenge({ selectedCharityName }) {
             </div>
             <div>
               <h3 className="text-2xl font-outfit font-bold">Impact Challenge</h3>
-              <p className="text-sm text-zinc-400">Play daily to boost your charity impact!</p>
+              <p className="text-sm text-muted-foreground">Play daily to boost your charity impact!</p>
             </div>
           </div>
           
@@ -274,16 +274,16 @@ export function ImpactChallenge({ selectedCharityName }) {
 
         {/* Stats Row */}
         <div className="grid grid-cols-3 gap-4 mb-6">
-          <div className="bg-zinc-800/50 rounded-xl p-4 border border-white/5">
-            <div className="flex items-center gap-2 text-zinc-400 text-sm mb-1">
+          <div className="bg-zinc-800/50 rounded-xl p-4 border border-border">
+            <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
               <Trophy className="w-4 h-4" />
               <span>Today's Score</span>
             </div>
             <div className="text-3xl font-outfit font-bold text-primary">{score}</div>
           </div>
           
-          <div className="bg-zinc-800/50 rounded-xl p-4 border border-white/5">
-            <div className="flex items-center gap-2 text-zinc-400 text-sm mb-1">
+          <div className="bg-zinc-800/50 rounded-xl p-4 border border-border">
+            <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
               <Heart className="w-4 h-4" />
               <span>Total Impact</span>
             </div>
@@ -292,19 +292,19 @@ export function ImpactChallenge({ selectedCharityName }) {
             </div>
           </div>
           
-          <div className="bg-zinc-800/50 rounded-xl p-4 border border-white/5">
-            <div className="flex items-center gap-2 text-zinc-400 text-sm mb-1">
+          <div className="bg-zinc-800/50 rounded-xl p-4 border border-border">
+            <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
               <Zap className="w-4 h-4" />
               <span>Supporting</span>
             </div>
-            <div className="text-sm font-semibold text-zinc-300 truncate">
+            <div className="text-sm font-semibold text-foreground/80 truncate">
               {selectedCharityName || 'Select a charity'}
             </div>
           </div>
         </div>
 
         {/* Game Canvas */}
-        <div className="bg-gradient-to-b from-blue-900/20 to-green-900/20 rounded-xl p-4 mb-6 border border-white/5">
+        <div className="bg-gradient-to-b from-blue-900/20 to-green-900/20 rounded-xl p-4 mb-6 border border-border">
           <canvas
             ref={canvasRef}
             width={800}
@@ -319,7 +319,7 @@ export function ImpactChallenge({ selectedCharityName }) {
           {/* Angle Control */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <label className="text-sm text-zinc-400">Angle: {angle}°</label>
+              <label className="text-sm text-muted-foreground">Angle: {angle}°</label>
             </div>
             <input
               type="range"
@@ -328,7 +328,7 @@ export function ImpactChallenge({ selectedCharityName }) {
               value={angle}
               onChange={(e) => setAngle(parseInt(e.target.value))}
               disabled={isRolling}
-              className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer"
+              className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer"
               style={{
                 background: `linear-gradient(to right, #F43F5E ${angle}%, #3f3f46 ${angle}%)`,
               }}
@@ -338,9 +338,9 @@ export function ImpactChallenge({ selectedCharityName }) {
           {/* Power Control */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <label className="text-sm text-zinc-400">Power: {power}%</label>
+              <label className="text-sm text-muted-foreground">Power: {power}%</label>
             </div>
-            <div className="w-full h-4 bg-zinc-700 rounded-lg overflow-hidden">
+            <div className="w-full h-4 bg-muted rounded-lg overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 transition-all duration-100"
                 style={{ width: `${power}%` }}
@@ -381,9 +381,9 @@ export function ImpactChallenge({ selectedCharityName }) {
         </div>
 
         {/* Instructions */}
-        <div className="mt-6 p-4 bg-zinc-800/30 rounded-xl border border-white/5">
+        <div className="mt-6 p-4 bg-muted/30 rounded-xl border border-border">
           <h4 className="text-sm font-semibold mb-2 text-primary">How to Play:</h4>
-          <ul className="text-xs text-zinc-400 space-y-1">
+          <ul className="text-xs text-muted-foreground space-y-1">
             <li>🎯 Adjust the angle slider to aim your shot</li>
             <li>⚡ Hold the "Charge Power" button to build power (release to shoot)</li>
             <li>🏆 Land in the hole to earn points for your selected charity!</li>
