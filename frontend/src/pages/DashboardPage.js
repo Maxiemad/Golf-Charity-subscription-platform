@@ -230,7 +230,7 @@ export function DashboardPage() {
           <h1 className="text-5xl md:text-6xl font-outfit font-bold mb-3" data-testid="dashboard-title">
             Welcome back, <span className="text-primary">{user?.name}</span>
           </h1>
-          <p className="text-xl text-zinc-400">Track your scores, manage subscriptions, and see your impact</p>
+          <p className="text-xl text-muted-foreground">Track your scores, manage subscriptions, and see your impact</p>
         </div>
 
         {/* Status Cards - 3D Effect */}
@@ -238,7 +238,7 @@ export function DashboardPage() {
           {/* Subscription Card */}
           <div className="group perspective-1000">
             <Card 
-              className="relative bg-gradient-to-br from-zinc-900 to-zinc-800 border-white/10 p-8 transform transition-all duration-500 hover:scale-105 hover:-rotate-1 shadow-2xl hover:shadow-primary/30"
+              className="relative bg-card border-border p-8 transform transition-all duration-500 hover:scale-105 hover:-rotate-1 shadow-2xl hover:shadow-primary/30"
               data-testid="subscription-card"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
@@ -268,7 +268,7 @@ export function DashboardPage() {
                       {user.subscription_tier === 'monthly' ? 'Monthly' : 'Yearly'} Plan
                     </p>
                     {user.subscription_end_date && (
-                      <p className="text-sm text-zinc-400 flex items-center gap-2">
+                      <p className="text-sm text-muted-foreground flex items-center gap-2">
                         <Clock className="w-4 h-4" />
                         Renews: {new Date(user.subscription_end_date).toLocaleDateString()}
                       </p>
@@ -276,7 +276,7 @@ export function DashboardPage() {
                   </div>
                 ) : (
                   <div>
-                    <p className="text-zinc-400 mb-4">Start your subscription to unlock all features</p>
+                    <p className="text-muted-foreground mb-4">Start your subscription to unlock all features</p>
                     <div className="space-y-2">
                       <Button
                         size="sm"
@@ -305,7 +305,7 @@ export function DashboardPage() {
           {/* Charity Card */}
           <div className="group perspective-1000">
             <Card 
-              className="relative bg-gradient-to-br from-zinc-900 to-zinc-800 border-white/10 p-8 transform transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-pink-600/30"
+              className="relative bg-card border-border p-8 transform transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-pink-600/30"
               data-testid="charity-card"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-pink-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
@@ -320,8 +320,8 @@ export function DashboardPage() {
                 
                 {user?.selected_charity_id ? (
                   <div>
-                    <p className="text-zinc-300 mb-2 font-semibold">{selectedCharityName}</p>
-                    <p className="text-sm text-zinc-400 mb-4">
+                    <p className="text-foreground/80 mb-2 font-semibold">{selectedCharityName}</p>
+                    <p className="text-sm text-muted-foreground mb-4">
                       Contributing <span className="text-primary font-bold">{user.charity_contribution_percentage}%</span> of subscription
                     </p>
                     <Link to="/charities">
@@ -332,7 +332,7 @@ export function DashboardPage() {
                   </div>
                 ) : (
                   <div>
-                    <p className="text-zinc-400 mb-4">Choose a cause to support</p>
+                    <p className="text-muted-foreground mb-4">Choose a cause to support</p>
                     <Link to="/charities">
                       <Button size="sm" className="w-full hover:scale-105 transition-transform" data-testid="select-charity-button">
                         <Heart className="w-4 h-4 mr-2" />
@@ -348,7 +348,7 @@ export function DashboardPage() {
           {/* Winnings Card */}
           <div className="group perspective-1000">
             <Card 
-              className="relative bg-gradient-to-br from-zinc-900 to-zinc-800 border-white/10 p-8 transform transition-all duration-500 hover:scale-105 hover:rotate-1 shadow-2xl hover:shadow-yellow-600/30"
+              className="relative bg-card border-border p-8 transform transition-all duration-500 hover:scale-105 hover:rotate-1 shadow-2xl hover:shadow-yellow-600/30"
               data-testid="winnings-card"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
@@ -369,7 +369,7 @@ export function DashboardPage() {
                 <div className="text-4xl font-outfit font-bold text-yellow-500 mb-1">
                   ${totalWinnings.toFixed(2)}
                 </div>
-                <p className="text-sm text-zinc-400">
+                <p className="text-sm text-muted-foreground">
                   {participations.length} total {participations.length === 1 ? 'entry' : 'entries'}
                 </p>
               </div>
@@ -379,7 +379,7 @@ export function DashboardPage() {
 
         {/* Scores Section - Enhanced 3D */}
         <Card 
-          className="bg-gradient-to-br from-zinc-900 to-zinc-800 border-white/10 p-10 mb-12 relative overflow-hidden shadow-2xl"
+          className="bg-card border-border p-10 mb-12 relative overflow-hidden shadow-2xl"
           data-testid="scores-section"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
@@ -391,7 +391,7 @@ export function DashboardPage() {
               </div>
               <div>
                 <h2 className="text-3xl font-outfit font-bold">Your Stableford Scores</h2>
-                <p className="text-zinc-400">Track your last 5 scores (1-45 points)</p>
+                <p className="text-muted-foreground">Track your last 5 scores (1-45 points)</p>
               </div>
             </div>
 
@@ -400,7 +400,7 @@ export function DashboardPage() {
                 {/* Add Score Form */}
                 <form onSubmit={handleAddScore} className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
                   <div>
-                    <Label htmlFor="score_value" className="text-zinc-300 mb-2">Score (1-45)</Label>
+                    <Label htmlFor="score_value" className="text-foreground/80 mb-2">Score (1-45)</Label>
                     <Input
                       id="score_value"
                       type="number"
@@ -411,11 +411,11 @@ export function DashboardPage() {
                       placeholder="e.g., 35"
                       required
                       data-testid="score-value-input"
-                      className="mt-2 bg-zinc-800 border-zinc-700 focus:border-primary"
+                      className="mt-2 bg-muted border-border focus:border-primary"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="score_date" className="text-zinc-300 mb-2">Date Played</Label>
+                    <Label htmlFor="score_date" className="text-foreground/80 mb-2">Date Played</Label>
                     <Input
                       id="score_date"
                       type="date"
@@ -423,7 +423,7 @@ export function DashboardPage() {
                       onChange={(e) => setNewScore({ ...newScore, score_date: e.target.value })}
                       required
                       data-testid="score-date-input"
-                      className="mt-2 bg-zinc-800 border-zinc-700 focus:border-primary"
+                      className="mt-2 bg-muted border-border focus:border-primary"
                     />
                   </div>
                   <div className="md:col-span-2 flex items-end">
@@ -442,20 +442,20 @@ export function DashboardPage() {
                 {/* Scores List */}
                 <div className="space-y-4">
                   {loadingScores ? (
-                    <div className="text-center text-zinc-400 py-12">
+                    <div className="text-center text-muted-foreground py-12">
                       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mx-auto"></div>
                       <p className="mt-4">Loading your scores...</p>
                     </div>
                   ) : scores.length === 0 ? (
                     <div className="text-center py-16" data-testid="no-scores-message">
-                      <Target className="w-16 h-16 text-zinc-600 mx-auto mb-4" />
-                      <p className="text-xl text-zinc-400 mb-2">No scores yet!</p>
-                      <p className="text-zinc-500">Add your first Stableford score to enter the next draw</p>
+                      <Target className="w-16 h-16 text-muted-foreground/40 mx-auto mb-4" />
+                      <p className="text-xl text-muted-foreground mb-2">No scores yet!</p>
+                      <p className="text-muted-foreground/60">Add your first Stableford score to enter the next draw</p>
                     </div>
                   ) : (
                     <>
                       <div className="flex items-center justify-between mb-4">
-                        <p className="text-sm text-zinc-400">{scores.length} of 5 scores tracked</p>
+                        <p className="text-sm text-muted-foreground">{scores.length} of 5 scores tracked</p>
                         {scores.length === 5 && (
                           <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
                             <CheckCircle className="w-3 h-3 mr-1" />
@@ -466,7 +466,7 @@ export function DashboardPage() {
                       {scores.map((score, index) => (
                         <div
                           key={score.score_id}
-                          className="group relative p-6 bg-zinc-800/50 rounded-xl border border-white/5 hover:border-primary/30 transition-all hover:scale-102 shadow-lg"
+                          className="group relative p-6 bg-muted/50 rounded-xl border border-white/5 hover:border-primary/30 transition-all hover:scale-102 shadow-lg"
                           data-testid="score-item"
                         >
                           <div className="flex items-center justify-between">
@@ -479,10 +479,10 @@ export function DashboardPage() {
                               </div>
                               <div>
                                 <div className="flex items-center gap-3 mb-1">
-                                  <Calendar className="w-4 h-4 text-zinc-400" />
+                                  <Calendar className="w-4 h-4 text-muted-foreground" />
                                   <span className="text-lg font-semibold">{new Date(score.score_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                                 </div>
-                                <p className="text-sm text-zinc-500">Score #{scores.length - index}</p>
+                                <p className="text-sm text-muted-foreground/60">Score #{scores.length - index}</p>
                               </div>
                             </div>
                             <Button
@@ -503,11 +503,11 @@ export function DashboardPage() {
               </>
             ) : (
               <div className="text-center py-20" data-testid="subscription-required-message">
-                <div className="w-24 h-24 rounded-full bg-zinc-800 flex items-center justify-center mx-auto mb-6">
-                  <AlertCircle className="w-12 h-12 text-zinc-600" />
+                <div className="w-24 h-24 rounded-full bg-muted flex items-center justify-center mx-auto mb-6">
+                  <AlertCircle className="w-12 h-12 text-muted-foreground/40" />
                 </div>
                 <h3 className="text-2xl font-outfit font-bold mb-3">Subscription Required</h3>
-                <p className="text-zinc-400 mb-8 max-w-md mx-auto">Activate your subscription to start tracking scores and entering monthly draws</p>
+                <p className="text-muted-foreground mb-8 max-w-md mx-auto">Activate your subscription to start tracking scores and entering monthly draws</p>
                 <Button onClick={() => handleSubscribe('monthly')} size="lg" className="hover:scale-105 transition-transform" data-testid="subscribe-to-add-scores">
                   <CreditCard className="w-5 h-5 mr-2" />
                   Activate Subscription
@@ -519,7 +519,7 @@ export function DashboardPage() {
 
         {/* Participations Section - Enhanced */}
         <Card 
-          className="bg-gradient-to-br from-zinc-900 to-zinc-800 border-white/10 p-10 relative overflow-hidden shadow-2xl"
+          className="bg-card border-border p-10 relative overflow-hidden shadow-2xl"
           data-testid="participations-section"
         >
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-600/5 rounded-full blur-3xl"></div>
@@ -531,20 +531,20 @@ export function DashboardPage() {
               </div>
               <div>
                 <h2 className="text-3xl font-outfit font-bold">Monthly Draw History</h2>
-                <p className="text-zinc-400">Your participation and winnings</p>
+                <p className="text-muted-foreground">Your participation and winnings</p>
               </div>
             </div>
 
             {loadingParticipations ? (
-              <div className="text-center text-zinc-400 py-12">
+              <div className="text-center text-muted-foreground py-12">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mx-auto"></div>
                 <p className="mt-4">Loading draw history...</p>
               </div>
             ) : participations.length === 0 ? (
               <div className="text-center py-16" data-testid="no-participations-message">
-                <Trophy className="w-16 h-16 text-zinc-600 mx-auto mb-4" />
-                <p className="text-xl text-zinc-400 mb-2">No draw entries yet</p>
-                <p className="text-zinc-500">Add 5 scores to automatically enter the next monthly draw!</p>
+                <Trophy className="w-16 h-16 text-muted-foreground/40 mx-auto mb-4" />
+                <p className="text-xl text-muted-foreground mb-2">No draw entries yet</p>
+                <p className="text-muted-foreground/60">Add 5 scores to automatically enter the next monthly draw!</p>
               </div>
             ) : (
               <div className="space-y-6">
@@ -554,7 +554,7 @@ export function DashboardPage() {
                     className={`relative p-8 rounded-2xl border transition-all hover:scale-102 ${
                       p.won
                         ? 'bg-gradient-to-br from-primary/10 to-pink-600/10 border-primary/30 shadow-lg shadow-primary/20'
-                        : 'bg-zinc-800/50 border-white/5'
+                        : 'bg-muted/50 border-white/5'
                     }`}
                     data-testid="participation-item"
                   >
@@ -569,7 +569,7 @@ export function DashboardPage() {
                     
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center gap-3">
-                        <Calendar className="w-5 h-5 text-zinc-400" />
+                        <Calendar className="w-5 h-5 text-muted-foreground" />
                         <span className="text-lg font-semibold">
                           {p.draw_date && new Date(p.draw_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                         </span>
@@ -581,7 +581,7 @@ export function DashboardPage() {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                       <div>
-                        <p className="text-xs text-zinc-500 uppercase tracking-wider mb-3">Your Numbers</p>
+                        <p className="text-xs text-muted-foreground/60 uppercase tracking-wider mb-3">Your Numbers</p>
                         <div className="flex gap-2 flex-wrap">
                           {p.user_numbers?.map((num, i) => (
                             <div
@@ -589,7 +589,7 @@ export function DashboardPage() {
                               className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg shadow-lg ${
                                 p.draw_numbers?.includes(num)
                                   ? 'bg-gradient-to-br from-primary to-pink-600 text-white'
-                                  : 'bg-zinc-700 text-zinc-300'
+                                  : 'bg-muted text-foreground/80'
                               }`}
                             >
                               {num}
@@ -598,12 +598,12 @@ export function DashboardPage() {
                         </div>
                       </div>
                       <div>
-                        <p className="text-xs text-zinc-500 uppercase tracking-wider mb-3">Winning Numbers</p>
+                        <p className="text-xs text-muted-foreground/60 uppercase tracking-wider mb-3">Winning Numbers</p>
                         <div className="flex gap-2 flex-wrap">
                           {p.draw_numbers?.map((num, i) => (
                             <div
                               key={i}
-                              className="w-12 h-12 rounded-xl bg-zinc-700 flex items-center justify-center font-bold text-lg shadow-lg"
+                              className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center font-bold text-lg shadow-lg"
                             >
                               {num}
                             </div>
@@ -613,17 +613,17 @@ export function DashboardPage() {
                     </div>
                     
                     {p.won && (
-                      <div className="pt-6 border-t border-white/10">
+                      <div className="pt-6 border-t border-border">
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <p className="text-sm text-zinc-400 mb-1">Prize Amount</p>
+                            <p className="text-sm text-muted-foreground mb-1">Prize Amount</p>
                             <p className="text-2xl font-outfit font-bold text-primary flex items-center gap-2">
                               <DollarSign className="w-5 h-5" />
                               {(p.prize_amount || 0).toFixed(2)}
                             </p>
                           </div>
                           <div>
-                            <p className="text-sm text-zinc-400 mb-1">Payment Status</p>
+                            <p className="text-sm text-muted-foreground mb-1">Payment Status</p>
                             <Badge
                               variant={p.payment_status === 'paid' ? 'default' : 'outline'}
                               className={p.payment_status === 'paid' ? 'bg-green-500/20 text-green-400 border-green-500/30' : ''}

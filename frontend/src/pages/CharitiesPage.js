@@ -78,7 +78,7 @@ export function CharitiesPage() {
               That Matters to You
             </span>
           </h1>
-          <p className="text-xl text-zinc-300 max-w-2xl mx-auto">
+          <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
             Choose a charity to support. At least 10% of your subscription goes directly to your
             selected cause.
           </p>
@@ -92,14 +92,14 @@ export function CharitiesPage() {
               data-testid="charity-card"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-pink-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <Card className="relative bg-zinc-900 border-white/10 overflow-hidden transform transition-all duration-300 hover:scale-105 shadow-2xl">
+              <Card className="relative bg-card border-white/10 overflow-hidden transform transition-all duration-300 hover:scale-105 shadow-2xl">
                 <div className="relative h-56 overflow-hidden">
                   <img
                     src={charity.image_url}
                     alt={charity.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent"></div>
                   {charity.featured && (
                     <Badge
                       className="absolute top-4 right-4 bg-primary shadow-xl"
@@ -114,17 +114,17 @@ export function CharitiesPage() {
                   <h3 className="text-2xl font-outfit font-bold mb-4" data-testid="charity-name">
                     {charity.name}
                   </h3>
-                  <p className="text-zinc-400 mb-6 leading-relaxed">{charity.description}</p>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{charity.description}</p>
 
                   {charity.upcoming_events && charity.upcoming_events.length > 0 && (
-                    <div className="mb-6 p-4 bg-zinc-800/50 rounded-xl border border-white/5">
-                      <div className="flex items-center gap-2 text-xs text-zinc-400 uppercase tracking-wider mb-3">
+                    <div className="mb-6 p-4 bg-muted/50 rounded-xl border border-white/5">
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-wider mb-3">
                         <Calendar className="w-3 h-3" />
                         Upcoming Events
                       </div>
                       <div className="space-y-2">
                         {charity.upcoming_events.slice(0, 2).map((event, idx) => (
-                          <div key={idx} className="text-sm text-zinc-300 flex items-start gap-2">
+                          <div key={idx} className="text-sm text-foreground/80 flex items-start gap-2">
                             <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                             {event}
                           </div>

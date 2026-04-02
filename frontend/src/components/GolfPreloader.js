@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Zap } from 'lucide-react';
 
 export function GolfPreloader({ onComplete }) {
   const [progress, setProgress] = useState(0);
@@ -43,15 +42,16 @@ export function GolfPreloader({ onComplete }) {
         {/* Logo */}
         <div className="flex items-center justify-center gap-3 mb-12">
           <div className="relative">
-            <div className="absolute -inset-2 bg-gradient-to-r from-primary to-pink-600 rounded-xl blur-xl opacity-75 animate-pulse"></div>
-            <div className="relative w-16 h-16 bg-gradient-to-br from-primary to-pink-600 rounded-xl flex items-center justify-center shadow-2xl">
-              <Zap className="w-10 h-10 text-white fill-white" strokeWidth={2} />
+            <div className="absolute -inset-2 bg-gradient-to-r from-primary to-pink-600 rounded-full blur-xl opacity-75 animate-pulse"></div>
+            <div className="relative w-16 h-16 bg-gradient-to-br from-primary to-pink-600 rounded-full flex items-center justify-center shadow-2xl">
+              <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <circle cx="12" cy="12" r="2" />
+                <circle cx="12" cy="12" r="6" opacity="0.6" />
+                <circle cx="12" cy="12" r="10" opacity="0.3" />
+              </svg>
             </div>
           </div>
-          <span className="text-5xl font-outfit font-bold">
-            <span className="bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">ace</span>
-            <span className="text-primary">.</span>
-          </span>
+          <span className="text-5xl font-outfit font-bold text-foreground">Ripple</span>
         </div>
 
         {/* Golf Animation Container */}
@@ -89,14 +89,14 @@ export function GolfPreloader({ onComplete }) {
         </div>
 
         <div className="space-y-4">
-          <p className="text-xl text-zinc-300 font-outfit">
+          <p className="text-xl text-muted-foreground font-outfit">
             <span className="inline-block animate-pulse">loading your impact</span>
             <span className="inline-block animate-bounce ml-1">.</span>
             <span className="inline-block animate-bounce ml-1" style={{ animationDelay: '0.2s' }}>.</span>
             <span className="inline-block animate-bounce ml-1" style={{ animationDelay: '0.4s' }}>.</span>
           </p>
           
-          <div className="w-64 h-2 bg-zinc-800 rounded-full mx-auto overflow-hidden">
+          <div className="w-64 h-2 bg-muted rounded-full mx-auto overflow-hidden">
             <div 
               className="h-full bg-gradient-to-r from-primary to-pink-600 rounded-full transition-all duration-300 ease-out"
               style={{ width: `${progress}%` }}

@@ -21,9 +21,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if preloader has been shown in this session
     const hasSeenPreloader = sessionStorage.getItem('hasSeenPreloader');
-    
     if (hasSeenPreloader) {
       setLoading(false);
     }
@@ -34,47 +32,49 @@ function App() {
     setLoading(false);
   };
 
-  if (loading) {
-    return <GolfPreloader onComplete={handlePreloaderComplete} />;
-  }
-
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <div className="App min-h-screen bg-background text-foreground relative">
-          <GolfYardCanvas />
-          <div className="relative z-10">
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/charities" element={<CharitiesPage />} />
-              <Route path="/celebration-demo" element={<CelebrationDemo />} />
-              <Route path="/game-demo" element={<GameDemo />} />
-              <Route
-                path="/dashboard"
-                element={
-                  <ProtectedRoute>
-                    <DashboardPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/admin"
-                element={
-                  <ProtectedRoute adminOnly>
-                    <AdminDashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-            <Toaster richColors position="top-right" />
-          </div>
-        </div>
-      </AuthProvider>
-    </BrowserRouter>
+    <ThemeProvider>
+      {loading ? (
+        <GolfPreloader onComplete={handlePreloaderComplete} />
+      ) : (
+        <BrowserRouter>
+          <AuthProvider>
+            <div className="App min-h-screen bg-background text-foreground relative">
+              <GolfYardCanvas />
+              <div className="relative z-10">
+                <Navbar />
+                <Routes>
+                  <Route path="/" element={<LandingPage />} />
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/register" element={<RegisterPage />} />
+                  <Route path="/charities" element={<CharitiesPage />} />
+                  <Route path="/celebration-demo" element={<CelebrationDemo />} />
+                  <Route path="/game-demo" element={<GameDemo />} />
+                  <Route
+                    path="/dashboard"
+                    element={
+                      <ProtectedRoute>
+                        <DashboardPage />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/admin"
+                    element={
+                      <ProtectedRoute adminOnly>
+                        <AdminDashboard />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
+                <Toaster richColors position="top-right" />
+              </div>
+            </div>
+          </AuthProvider>
+        </BrowserRouter>
+      )}
+    </ThemeProvider>
   );
 }
 

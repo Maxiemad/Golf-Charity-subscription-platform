@@ -22,7 +22,7 @@ export function Navbar() {
     navigate('/');
   };
 
-  const showBackButton = !['/','/ login', '/register'].includes(location.pathname);
+  const showBackButton = !['/', '/login', '/register'].includes(location.pathname);
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border">

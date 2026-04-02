@@ -86,11 +86,11 @@ export function LandingPage() {
           ))}
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm mb-8 hover:scale-105 transition-transform">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-semibold">Where Performance Meets Purpose</span>
+            <span className="text-sm font-semibold text-white">Where Performance Meets Purpose</span>
           </div>
 
           <h1
@@ -107,7 +107,7 @@ export function LandingPage() {
           </h1>
 
           <p
-            className="text-xl md:text-2xl text-zinc-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed"
             data-testid="hero-subtitle"
           >
             Join a revolutionary platform where your Stableford scores unlock monthly prizes while
@@ -151,7 +151,7 @@ export function LandingPage() {
 
       {/* 3D Stats Cards Section */}
       <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-zinc-900/50 to-background"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/50 to-background"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -160,7 +160,7 @@ export function LandingPage() {
               className="group perspective-1000"
               data-testid="stat-members"
             >
-              <Card className="relative bg-gradient-to-br from-zinc-900 to-zinc-800 border-white/10 p-10 transform transition-all duration-500 hover:scale-105 hover:-rotate-1 shadow-2xl hover:shadow-primary/20">
+              <Card className="relative bg-card border-border p-10 transform transition-all duration-500 hover:scale-105 hover:-rotate-1 shadow-2xl hover:shadow-primary/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
                 <div className="relative z-10">
                   <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -169,8 +169,8 @@ export function LandingPage() {
                   <div className="text-5xl font-outfit font-bold mb-3">
                     <AnimatedCounter end={stats.users} />+
                   </div>
-                  <div className="text-zinc-400 text-lg">Active Members</div>
-                  <div className="mt-4 text-sm text-zinc-500">Growing community of change-makers</div>
+                  <div className="text-muted-foreground text-lg">Active Members</div>
+                  <div className="mt-4 text-sm text-muted-foreground/60">Growing community of change-makers</div>
                 </div>
               </Card>
             </div>
@@ -180,7 +180,7 @@ export function LandingPage() {
               className="group perspective-1000"
               data-testid="stat-prize-pool"
             >
-              <Card className="relative bg-gradient-to-br from-zinc-900 to-zinc-800 border-white/10 p-10 transform transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-primary/20">
+              <Card className="relative bg-card border-border p-10 transform transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-primary/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
                 <div className="relative z-10">
                   <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -189,8 +189,8 @@ export function LandingPage() {
                   <div className="text-5xl font-outfit font-bold mb-3">
                     $<AnimatedCounter end={stats.prizePool} />
                   </div>
-                  <div className="text-zinc-400 text-lg">Monthly Prize Pool</div>
-                  <div className="mt-4 text-sm text-zinc-500">Distributed across 3 tiers</div>
+                  <div className="text-muted-foreground text-lg">Monthly Prize Pool</div>
+                  <div className="mt-4 text-sm text-muted-foreground/60">Distributed across 3 tiers</div>
                 </div>
               </Card>
             </div>
@@ -200,7 +200,7 @@ export function LandingPage() {
               className="group perspective-1000"
               data-testid="stat-charity"
             >
-              <Card className="relative bg-gradient-to-br from-zinc-900 to-zinc-800 border-white/10 p-10 transform transition-all duration-500 hover:scale-105 hover:rotate-1 shadow-2xl hover:shadow-primary/20">
+              <Card className="relative bg-card border-border p-10 transform transition-all duration-500 hover:scale-105 hover:rotate-1 shadow-2xl hover:shadow-primary/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
                 <div className="relative z-10">
                   <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -209,8 +209,8 @@ export function LandingPage() {
                   <div className="text-5xl font-outfit font-bold mb-3">
                     $<AnimatedCounter end={stats.charity} />
                   </div>
-                  <div className="text-zinc-400 text-lg">Donated to Charities</div>
-                  <div className="mt-4 text-sm text-zinc-500">Real impact, real change</div>
+                  <div className="text-muted-foreground text-lg">Donated to Charities</div>
+                  <div className="mt-4 text-sm text-muted-foreground/60">Real impact, real change</div>
                 </div>
               </Card>
             </div>
@@ -226,7 +226,7 @@ export function LandingPage() {
               Three Steps to
               <span className="block mt-2 text-primary">Make a Difference</span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Simple, transparent, and impactful
             </p>
           </div>
@@ -235,7 +235,7 @@ export function LandingPage() {
             {/* Step 1 */}
             <div className="group relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-pink-600 rounded-2xl blur-xl opacity-25 group-hover:opacity-75 transition-opacity"></div>
-              <Card className="relative bg-zinc-900 border-white/10 p-10 hover:scale-105 transition-transform duration-300">
+              <Card className="relative bg-card border-border p-10 hover:scale-105 transition-transform duration-300">
                 <div className="absolute top-0 right-0 -mt-6 -mr-6 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-3xl font-bold shadow-xl">
                   1
                 </div>
@@ -243,7 +243,7 @@ export function LandingPage() {
                   <Target className="w-10 h-10 text-primary" />
                 </div>
                 <h3 className="text-2xl font-outfit font-bold mb-4">Subscribe & Select</h3>
-                <p className="text-zinc-400 leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   Choose monthly ($20) or yearly ($200) plan. Pick a charity close to your heart—minimum 10% of your subscription supports them directly.
                 </p>
                 <div className="flex items-center gap-2 text-sm text-primary">
@@ -260,7 +260,7 @@ export function LandingPage() {
             {/* Step 2 */}
             <div className="group relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-pink-600 rounded-2xl blur-xl opacity-25 group-hover:opacity-75 transition-opacity"></div>
-              <Card className="relative bg-zinc-900 border-white/10 p-10 hover:scale-105 transition-transform duration-300">
+              <Card className="relative bg-card border-border p-10 hover:scale-105 transition-transform duration-300">
                 <div className="absolute top-0 right-0 -mt-6 -mr-6 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-3xl font-bold shadow-xl">
                   2
                 </div>
@@ -268,7 +268,7 @@ export function LandingPage() {
                   <TrendingUp className="w-10 h-10 text-primary" />
                 </div>
                 <h3 className="text-2xl font-outfit font-bold mb-4">Track Your Scores</h3>
-                <p className="text-zinc-400 leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   Enter your last 5 Stableford scores (1-45 points). These numbers become your entry to the monthly prize draw—no extra steps needed.
                 </p>
                 <div className="flex items-center gap-2 text-sm text-primary">
@@ -285,7 +285,7 @@ export function LandingPage() {
             {/* Step 3 */}
             <div className="group relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-pink-600 rounded-2xl blur-xl opacity-25 group-hover:opacity-75 transition-opacity"></div>
-              <Card className="relative bg-zinc-900 border-white/10 p-10 hover:scale-105 transition-transform duration-300">
+              <Card className="relative bg-card border-border p-10 hover:scale-105 transition-transform duration-300">
                 <div className="absolute top-0 right-0 -mt-6 -mr-6 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-3xl font-bold shadow-xl">
                   3
                 </div>
@@ -293,7 +293,7 @@ export function LandingPage() {
                   <Trophy className="w-10 h-10 text-primary" />
                 </div>
                 <h3 className="text-2xl font-outfit font-bold mb-4">Win & Give Back</h3>
-                <p className="text-zinc-400 leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   Match 3, 4, or 5 numbers in monthly draws to win your share of the prize pool. Every subscription fuels positive change.
                 </p>
                 <div className="flex items-center gap-2 text-sm text-primary">
@@ -312,7 +312,7 @@ export function LandingPage() {
 
       {/* Charity Impact - Parallax Section */}
       <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/80 to-background"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-card/80 to-background"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -329,7 +329,7 @@ export function LandingPage() {
                 </span>
               </h2>
               
-              <p className="text-xl text-zinc-300 leading-relaxed mb-10">
+              <p className="text-xl text-foreground/80 leading-relaxed mb-10">
                 Every subscription is a commitment to change. Choose from vetted charities focused on education, health, environment, and community development.
               </p>
               
@@ -340,7 +340,7 @@ export function LandingPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-1">Minimum 10% Direct Contribution</h4>
-                    <p className="text-zinc-400">Every subscription guarantees meaningful support</p>
+                    <p className="text-muted-foreground">Every subscription guarantees meaningful support</p>
                   </div>
                 </div>
                 
@@ -350,7 +350,7 @@ export function LandingPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-1">Increase Your Impact Anytime</h4>
-                    <p className="text-zinc-400">Adjust your contribution percentage whenever you want</p>
+                    <p className="text-muted-foreground">Adjust your contribution percentage whenever you want</p>
                   </div>
                 </div>
                 
@@ -360,7 +360,7 @@ export function LandingPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-1">Full Transparency</h4>
-                    <p className="text-zinc-400">Track exactly where your contribution goes</p>
+                    <p className="text-muted-foreground">Track exactly where your contribution goes</p>
                   </div>
                 </div>
               </div>
@@ -394,7 +394,7 @@ export function LandingPage() {
               Choose Your
               <span className="block mt-2 text-primary">Impact Level</span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Transparent pricing, maximum impact
             </p>
           </div>
@@ -402,12 +402,12 @@ export function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Monthly Plan */}
             <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-zinc-600 to-zinc-700 rounded-3xl blur-xl opacity-25 group-hover:opacity-50 transition-opacity"></div>
-              <Card className="relative bg-zinc-900 border-white/10 p-12 hover:scale-105 transition-transform duration-300">
-                <div className="text-sm uppercase tracking-widest text-zinc-400 mb-3">Monthly</div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-muted to-muted rounded-3xl blur-xl opacity-25 group-hover:opacity-50 transition-opacity"></div>
+              <Card className="relative bg-card border-border p-12 hover:scale-105 transition-transform duration-300">
+                <div className="text-sm uppercase tracking-widest text-muted-foreground mb-3">Monthly</div>
                 <div className="text-6xl font-outfit font-bold mb-2">
                   $20
-                  <span className="text-2xl text-zinc-400 font-normal">/month</span>
+                  <span className="text-2xl text-muted-foreground font-normal">/month</span>
                 </div>
                 <div className="text-primary mb-8">Perfect for getting started</div>
                 
@@ -416,25 +416,25 @@ export function LandingPage() {
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                       <Check className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-zinc-300">Enter all monthly draws</span>
+                    <span className="text-foreground/80">Enter all monthly draws</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                       <Check className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-zinc-300">Track unlimited scores</span>
+                    <span className="text-foreground/80">Track unlimited scores</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                       <Check className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-zinc-300">Support your chosen charity</span>
+                    <span className="text-foreground/80">Support your chosen charity</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                       <Check className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-zinc-300">Real-time draw results</span>
+                    <span className="text-foreground/80">Real-time draw results</span>
                   </li>
                 </ul>
                 
@@ -451,7 +451,7 @@ export function LandingPage() {
             {/* Yearly Plan */}
             <div className="group relative">
               <div className="absolute -inset-2 bg-gradient-to-r from-primary via-pink-600 to-primary rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
-              <Card className="relative bg-gradient-to-br from-zinc-900 to-zinc-800 border-primary/30 p-12 hover:scale-105 transition-transform duration-300">
+              <Card className="relative bg-card border-primary/30 p-12 hover:scale-105 transition-transform duration-300">
                 <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-primary to-pink-600 rounded-full text-sm font-bold shadow-xl">
                   <span className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4" />
@@ -459,10 +459,10 @@ export function LandingPage() {
                   </span>
                 </div>
                 
-                <div className="text-sm uppercase tracking-widest text-zinc-400 mb-3 mt-4">Yearly</div>
+                <div className="text-sm uppercase tracking-widest text-muted-foreground mb-3 mt-4">Yearly</div>
                 <div className="text-6xl font-outfit font-bold mb-2">
                   $200
-                  <span className="text-2xl text-zinc-400 font-normal">/year</span>
+                  <span className="text-2xl text-muted-foreground font-normal">/year</span>
                 </div>
                 <div className="text-primary mb-8 font-semibold">Save $40 — Two months free!</div>
                 
@@ -471,25 +471,25 @@ export function LandingPage() {
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                       <Check className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-zinc-300">Everything in Monthly</span>
+                    <span className="text-foreground/80">Everything in Monthly</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                       <Check className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-zinc-300">16% savings annually</span>
+                    <span className="text-foreground/80">16% savings annually</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                       <Check className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-zinc-300">Uninterrupted impact</span>
+                    <span className="text-foreground/80">Uninterrupted impact</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                       <Check className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-zinc-300">Priority support</span>
+                    <span className="text-foreground/80">Priority support</span>
                   </li>
                 </ul>
                 
@@ -519,7 +519,7 @@ export function LandingPage() {
             Ready to Transform
             <span className="block mt-2 text-primary">Lives Through Play?</span>
           </h2>
-          <p className="text-xl text-zinc-300 mb-12 max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/80 mb-12 max-w-3xl mx-auto">
             Join {stats.users.toLocaleString()}+ members who are combining passion with purpose. Every score matters. Every subscription counts.
           </p>
           <Button 
