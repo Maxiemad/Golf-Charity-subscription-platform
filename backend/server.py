@@ -16,7 +16,55 @@ import resend
 import random
 import secrets
 from bson import ObjectId
-from emergentintegrations.payments.stripe.checkout import StripeCheckout, CheckoutSessionResponse, CheckoutStatusResponse, CheckoutSessionRequest
+
+try:
+    from emergentintegrations.payments.stripe.checkout import StripeCheckout, CheckoutSessionResponse, CheckoutStatusResponse, CheckoutSessionRequest
+    HAS_EMERGENT_STRIPE = True
+except ImportError:
+    HAS_EMERGENT_STRIPE = False
+    import stripe as stripe_lib
+
+    class CheckoutSessionRequest:
+        def __init__(self, amount, currency, success_url, cancel_url, metadata=None):
+            self.amount = amount
+            self.currency = currency
+            self.success_url = success_url
+            self.cancel_url = cancel_url
+            self.metadata = metadata or {}
+
+    class StripeCheckout:
+        def __init__(self, api_key, webhook_url=None):
+            stripe_lib.api_key = api_key
+
+        async def create_checkout_session(self, request):
+            session = stripe_lib.checkout.Session.create(
+                payment_method_types=['card'],
+                line_items=[{
+                    'price_data': {
+                        'currency': request.currency,
+                        'product_data': {'name': 'Lively Golf Charity Subscription'},
+                        'unit_amount': int(request.amount * 100),
+                    },
+                    'quantity': 1,
+                }],
+                mode='payment',
+                success_url=request.success_url,
+                cancel_url=request.cancel_url,
+                metadata=request.metadata,
+            )
+            return type('Resp', (), {'session_id': session.id, 'url': session.url})()
+
+        async def get_checkout_status(self, session_id):
+            session = stripe_lib.checkout.Session.retrieve(session_id)
+            return type('Status', (), {
+                'status': session.status,
+                'payment_status': session.payment_status,
+                'amount_total': session.amount_total,
+                'currency': session.currency,
+            })()
+
+        async def handle_webhook(self, body, signature):
+            return type('WH', (), {'event_type': 'unknown'})()
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')

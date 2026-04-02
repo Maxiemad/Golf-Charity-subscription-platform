@@ -6,7 +6,7 @@ import { Trophy, Target, Heart, Zap, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_BACKEND_URL;
+const API_URL = process.env.REACT_APP_BACKEND_URL || '';
 
 export function ImpactChallenge({ selectedCharityName }) {
   const canvasRef = useRef(null);

@@ -7,7 +7,7 @@ import { Badge } from '../components/ui/badge';
 import { Heart, Check, MapPin, Calendar } from 'lucide-react';
 import { toast } from 'sonner';
 
-const API_URL = process.env.REACT_APP_BACKEND_URL;
+const API_URL = process.env.REACT_APP_BACKEND_URL || '';
 
 export function CharitiesPage() {
   const { user, refreshUser } = useAuth();

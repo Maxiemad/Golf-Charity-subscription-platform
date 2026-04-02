@@ -20,7 +20,7 @@ Build a "Golf Charity Subscription Platform" where users subscribe (Monthly $20 
 - [x] Stableford score submission (1-45 range, rolling 5 scores)
 - [x] Stripe checkout integration (Monthly $20, Yearly $200)
 - [x] Landing page with hero, pricing, how-it-works sections
-- [x] Login/Register pages with Ripple branding
+- [x] Login/Register pages with Lively branding
 - [x] User Dashboard (subscription status, charity display, scores)
 - [x] Admin Dashboard (basic)
 - [x] Charities page with 6 charities and selection UI
@@ -33,6 +33,7 @@ Build a "Golf Charity Subscription Platform" where users subscribe (Monthly $20 
 - [x] **Impact Challenge game** moved to prominent position (after status cards)
 - [x] **Theme-aware colors** - all pages use CSS variables, no hardcoded dark/light colors
 - [x] **Charity display fix** - selected charity correctly shows on dashboard
+- [x] **Vercel deployment config** - vercel.json, main.py entry point, relative API paths
 
 ### Bug Fixes Applied
 - Fixed ThemeProvider not wrapping app (caused crash: "useTheme must be used within ThemeProvider")

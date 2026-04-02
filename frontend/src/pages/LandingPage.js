@@ -6,7 +6,7 @@ import { Card } from '../components/ui/card';
 import { Heart, TrendingUp, Users, DollarSign, ArrowRight, Check, Sparkles, Trophy, Calendar, Target, ArrowUp } from 'lucide-react';
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_BACKEND_URL;
+const API_URL = process.env.REACT_APP_BACKEND_URL || '';
 
 function AnimatedCounter({ end, duration = 2000, suffix = '' }) {
   const [count, setCount] = useState(0);
